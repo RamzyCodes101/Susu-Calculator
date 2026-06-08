@@ -18,3 +18,16 @@ console.log(`Active members : ${activeMembers.length}`)
 let inActiveMembers = members.filter( member => member.isActive === false)
 
 console.log(`Inactive members : ${inActiveMembers.length}`)
+
+
+let totalPot = members.reduce((acc, member) => acc + member.balance, 0)
+
+console.log(`Total Pot : ${totalPot}`)
+
+let activeMemberPot = activeMembers.reduce((acc, member) => acc + member.balance, 0)
+
+console.log(`Active members pot : ${activeMemberPot} `)
+
+let richestMember = members.reduce( (richest, member) =>  
+    member.balance > member.richest ? member : richest, members[0])
+
