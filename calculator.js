@@ -29,5 +29,21 @@ let activeMemberPot = activeMembers.reduce((acc, member) => acc + member.balance
 console.log(`Active members pot : ${activeMemberPot} `)
 
 let richestMember = members.reduce( (richest, member) =>  
-    member.balance > member.richest ? member : richest, members[0])
+    member.balance > richest.balance ? member : richest, members[0])
+
+console.log(`Richest member: ${richestMember.name} with GHS ${richestMember.balance}`)
+
+let mostDedicated = members.reduce(( acc, member) => 
+    member.contribution > acc.contribution ? member : acc, members[0])
+
+console.log(`${mostDedicated.name} with ${mostDedicated.contributions} contributions`)
+
+let totalContribution = members.reduce(( acc, member) => 
+    member.contributions + acc, 0)
+
+console.log(`Total contribution : ${totalContribution}`)
+
+let listactive = activeMembers.map(member => member.name + ' ' + member.balance)
+
+console.log(listactive)
 
